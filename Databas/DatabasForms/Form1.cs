@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace DatabasForms
 {
@@ -9,6 +10,7 @@ namespace DatabasForms
         {
             InitializeComponent();
         }
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -43,5 +45,7 @@ namespace DatabasForms
             Form2 f2 = new Form2();
             f2.ShowDialog();
         }
+
+       
     }
 }

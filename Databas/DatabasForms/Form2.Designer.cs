@@ -29,16 +29,12 @@ namespace DatabasForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Namn"}, -1, System.Drawing.Color.Empty, System.Drawing.SystemColors.InactiveCaption, null);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Vårdnadshavare");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("ID");
             this.btnBack = new System.Windows.Forms.Button();
             this.cmbSelect = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.Info = new System.Windows.Forms.ColumnHeader();
-            this.Data = new System.Windows.Forms.ColumnHeader();
+            this.lstViewBox = new System.Windows.Forms.ListView();
+            this.chInfo = new System.Windows.Forms.ColumnHeader();
+            this.chData = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // btnBack
@@ -66,6 +62,7 @@ namespace DatabasForms
             this.cmbSelect.Name = "cmbSelect";
             this.cmbSelect.Size = new System.Drawing.Size(121, 23);
             this.cmbSelect.TabIndex = 1;
+            this.cmbSelect.SelectedIndexChanged += new System.EventHandler(this.cmbSelect_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -80,34 +77,32 @@ namespace DatabasForms
             this.label1.TabIndex = 2;
             this.label1.Text = "Add";
             // 
-            // listView1
+            // lstViewBox
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Info,
-            this.Data});
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
-            this.listView1.Location = new System.Drawing.Point(226, 116);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(303, 190);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lstViewBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chInfo,
+            this.chData});
+            this.lstViewBox.FullRowSelect = true;
+            this.lstViewBox.GridLines = true;
+            this.lstViewBox.HideSelection = false;
+            this.lstViewBox.LabelEdit = true;
+            this.lstViewBox.Location = new System.Drawing.Point(54, 91);
+            this.lstViewBox.Name = "lstViewBox";
+            this.lstViewBox.Size = new System.Drawing.Size(752, 332);
+            this.lstViewBox.TabIndex = 4;
+            this.lstViewBox.UseCompatibleStateImageBehavior = false;
+            this.lstViewBox.View = System.Windows.Forms.View.Details;
+            this.lstViewBox.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lstViewBox_ColumnWidthChanging);
             // 
-            // Info
+            // chInfo
             // 
-            this.Info.Tag = "";
-            this.Info.Text = "Info";
-            this.Info.Width = 150;
+            this.chInfo.Text = "Info";
+            this.chInfo.Width = 100;
             // 
-            // Data
+            // chData
             // 
-            this.Data.Text = "Data";
-            this.Data.Width = 150;
+            this.chData.Text = "Data";
+            this.chData.Width = 100;
             // 
             // Form2
             // 
@@ -115,7 +110,7 @@ namespace DatabasForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(879, 458);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lstViewBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbSelect);
             this.Controls.Add(this.btnBack);
@@ -124,7 +119,6 @@ namespace DatabasForms
             this.MinimumSize = new System.Drawing.Size(16, 39);
             this.Name = "Form2";
             this.Text = "Add";
-            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,8 +129,8 @@ namespace DatabasForms
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ComboBox cmbSelect;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader Info;
-        private System.Windows.Forms.ColumnHeader Data;
+        private System.Windows.Forms.ListView lstViewBox;
+        private System.Windows.Forms.ColumnHeader chInfo;
+        private System.Windows.Forms.ColumnHeader chData;
     }
 }
