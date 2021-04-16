@@ -38,11 +38,17 @@ namespace DatabasForms
             string select = cmbSelect.Text.ToLower();
             lstViewBox.Columns.Clear();
             lstViewBox.View = View.Details;
+            lblOne.Text = "-----";
             if (select == "elever")
             {
-                lstViewBox.Columns.Add("Namn", width: 100);
-                lstViewBox.Columns.Add("Vårdnadshavare", width: 100);
-                lstViewBox.Columns.Add("ID", width: 100);
+                lstViewBox.Columns.Add("Namn", width: 150);
+                lstViewBox.Columns.Add("Vårdnadshavare", width: 150);
+                lstViewBox.Columns.Add("Personnummer", width: 150);
+                lstViewBox.Columns.Add("Adress", width: 150);
+                lstViewBox.Columns.Add("E-post", width: 150);
+                lstViewBox.Columns.Add("Klass", width: 150);
+
+                lblOne.Text = "Namn";
             }
         }
 
@@ -51,5 +57,6 @@ namespace DatabasForms
             e.Cancel = true;
             e.NewWidth = lstViewBox.Columns[e.ColumnIndex].Width;
         }
+
     }
 }

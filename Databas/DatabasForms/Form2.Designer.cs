@@ -35,14 +35,16 @@ namespace DatabasForms
             this.lstViewBox = new System.Windows.Forms.ListView();
             this.chInfo = new System.Windows.Forms.ColumnHeader();
             this.chData = new System.Windows.Forms.ColumnHeader();
+            this.lblOne = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtOne = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(54, 32);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBack.Location = new System.Drawing.Point(62, 43);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 22);
+            this.btnBack.Size = new System.Drawing.Size(86, 29);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "< Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -57,10 +59,9 @@ namespace DatabasForms
             "Kurser",
             "Lärare",
             "Klasser"});
-            this.cmbSelect.Location = new System.Drawing.Point(261, 31);
-            this.cmbSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbSelect.Location = new System.Drawing.Point(298, 41);
             this.cmbSelect.Name = "cmbSelect";
-            this.cmbSelect.Size = new System.Drawing.Size(121, 23);
+            this.cmbSelect.Size = new System.Drawing.Size(138, 28);
             this.cmbSelect.TabIndex = 1;
             this.cmbSelect.SelectedIndexChanged += new System.EventHandler(this.cmbSelect_SelectedIndexChanged);
             // 
@@ -70,10 +71,10 @@ namespace DatabasForms
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(226, 34);
-            this.label1.MinimumSize = new System.Drawing.Size(2, 2);
+            this.label1.Location = new System.Drawing.Point(258, 45);
+            this.label1.MinimumSize = new System.Drawing.Size(2, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 15);
+            this.label1.Size = new System.Drawing.Size(37, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Add";
             // 
@@ -86,9 +87,10 @@ namespace DatabasForms
             this.lstViewBox.GridLines = true;
             this.lstViewBox.HideSelection = false;
             this.lstViewBox.LabelEdit = true;
-            this.lstViewBox.Location = new System.Drawing.Point(54, 91);
+            this.lstViewBox.Location = new System.Drawing.Point(62, 121);
+            this.lstViewBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lstViewBox.Name = "lstViewBox";
-            this.lstViewBox.Size = new System.Drawing.Size(752, 332);
+            this.lstViewBox.Size = new System.Drawing.Size(859, 441);
             this.lstViewBox.TabIndex = 4;
             this.lstViewBox.UseCompatibleStateImageBehavior = false;
             this.lstViewBox.View = System.Windows.Forms.View.Details;
@@ -104,19 +106,46 @@ namespace DatabasForms
             this.chData.Text = "Data";
             this.chData.Width = 100;
             // 
+            // lblOne
+            // 
+            this.lblOne.AutoSize = true;
+            this.lblOne.Location = new System.Drawing.Point(507, 49);
+            this.lblOne.Name = "lblOne";
+            this.lblOne.Size = new System.Drawing.Size(45, 20);
+            this.lblOne.TabIndex = 5;
+            this.lblOne.Text = "------";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(478, -120);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(744, 27);
+            this.textBox1.TabIndex = 6;
+            // 
+            // txtOne
+            // 
+            this.txtOne.Location = new System.Drawing.Point(558, 44);
+            this.txtOne.Name = "txtOne";
+            this.txtOne.Size = new System.Drawing.Size(125, 27);
+            this.txtOne.TabIndex = 7;
+            // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(879, 458);
+            this.ClientSize = new System.Drawing.Size(1005, 611);
+            this.Controls.Add(this.txtOne);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblOne);
             this.Controls.Add(this.lstViewBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbSelect);
             this.Controls.Add(this.btnBack);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MinimumSize = new System.Drawing.Size(16, 39);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimumSize = new System.Drawing.Size(18, 47);
             this.Name = "Form2";
             this.Text = "Add";
             this.ResumeLayout(false);
@@ -132,5 +161,8 @@ namespace DatabasForms
         private System.Windows.Forms.ListView lstViewBox;
         private System.Windows.Forms.ColumnHeader chInfo;
         private System.Windows.Forms.ColumnHeader chData;
+        private System.Windows.Forms.Label lblOne;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtOne;
     }
 }
