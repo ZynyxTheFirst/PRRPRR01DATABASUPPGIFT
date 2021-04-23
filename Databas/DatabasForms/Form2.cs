@@ -28,6 +28,7 @@ namespace DatabasForms
         {
             string select = cmbSelect.Text.ToLower();
             lstViewBox.Columns.Clear();
+            lstViewBox.Items.Clear();
             lstViewBox.FullRowSelect = true;
 
             #region Label Startup
@@ -41,24 +42,53 @@ namespace DatabasForms
 
             if (select == "elever")
             {
-                lstViewBox.Columns.Add("Namn", width: 150);
-                lstViewBox.Columns.Add("Vårdnadshavare", width: 150);
                 lstViewBox.Columns.Add("Personnummer", width: 150);
+                lstViewBox.Columns.Add("Namn", width: 150);
                 lstViewBox.Columns.Add("Adress", width: 150);
                 lstViewBox.Columns.Add("E-post", width: 150);
+                lstViewBox.Columns.Add("Telefonnummer", width: 150);
                 lstViewBox.Columns.Add("Klass", width: 150);
 
-                lbl1.Text = "Namn";
-                lbl2.Text = "Vårdnadshavare";
-                lbl3.Text = "Personnummer";
-                lbl4.Text = "Adress";
-                lbl5.Text = "E-post";
+                lbl1.Text = "Personnummer";
+                lbl2.Text = "Namn";
+                lbl3.Text = "Adress";
+                lbl4.Text = "E-post";
+                lbl5.Text = "Telefonnummer";
                 lbl6.Text = "Klass";
 
+                lbl6.Show();
+                txtBox6.Show();
+            }
+
+            if (select == "vårdnadshavare")
+            {
+                lstViewBox.Columns.Add("Personnummer", width: 150);
+                lstViewBox.Columns.Add("Namn", width: 150);
+                lstViewBox.Columns.Add("Adress", width: 150);
+                lstViewBox.Columns.Add("E-post", width: 150);
+                lstViewBox.Columns.Add("Telefonnummer", width: 150);
+
+                lbl1.Text = "Personnummer";
+                lbl2.Text = "Namn";
+                lbl3.Text = "Adress";
+                lbl4.Text = "E-post";
+                lbl5.Text = "Telefonnummer";
+
                 lbl6.Hide();
+                txtBox6.Hide();
             }
         }
         
+        private void AddElever(String personnummer, String name, String adress, String epost, String telefonnummer, String klass)
+        {
+            String[] row = { personnummer, name, adress, epost, telefonnummer, klass };
+
+            ListViewItem item = new ListViewItem(row);
+
+            lstViewBox.Items.Add(item);
+        }
+
+
 
         private void lstViewBox_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
@@ -68,12 +98,14 @@ namespace DatabasForms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            AddElever(txtBox1.Text, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtBox5.Text, txtBox6.Text);
 
-        }
-
-        private void AddElever()
-        {
-
+            txtBox1.Text = "";
+            txtBox2.Text = "";
+            txtBox3.Text = "";
+            txtBox4.Text = "";
+            txtBox5.Text = "";
+            txtBox6.Text = "";
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Collections.Generic;
+
 
 namespace DatabasForms
 {
@@ -10,7 +10,7 @@ namespace DatabasForms
         public Form1()
         {
             InitializeComponent();
-
+            lstContainer.DoubleClick += lstContainer_MouseDoubleClick;
             
         }
 
@@ -31,7 +31,7 @@ namespace DatabasForms
                     if (select == "elever")
                     {
 
-                        listContainer.Items.Add(s.ToString());
+                        lstContainer.Items.Add(s.ToString());
                     }
                 }
                 foreach(string s in huh)
@@ -50,7 +50,16 @@ namespace DatabasForms
             Form2 f2 = new Form2();
             f2.ShowDialog();
         }
+        
+        void lstContainer_MouseDoubleClick(object sender, EventArgs e)
+        {
+            if(lstContainer.SelectedItem != null)
+            {
 
-       
+                this.Hide();
+                Form2 f2 = new Form2();
+                f2.ShowDialog();
+            }
+        }
     }
 }

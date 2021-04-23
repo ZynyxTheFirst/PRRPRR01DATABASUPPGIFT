@@ -68,10 +68,10 @@ namespace DatabasForms
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(119, 422);
+            this.btnAdd.Location = new System.Drawing.Point(133, 425);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(86, 31);
+            this.btnAdd.Size = new System.Drawing.Size(150, 50);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
