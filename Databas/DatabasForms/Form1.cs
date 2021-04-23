@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
@@ -18,17 +19,19 @@ namespace DatabasForms
         {
             string select = cmbSelect.Text.ToLower();
 
+            List<EleverModel> elever = SqliteDataAccess.LoadEleverList();
+           
             if (cmbSelect.Text != null)
             {
-                string[] elever = { "Paco", "Zynyx", "Mini Fruit", "Shonen" };
                 string[] huh = { "bananan", "batman", "owo", "trex" };
                 lstContainer.Items.Clear();
 
-                foreach (string s in elever)
+                foreach (var s in elever)
                 {
                     if (select == "elever")
                     {
-                        lstContainer.Items.Add(s);
+
+                        listContainer.Items.Add(s.ToString());
                     }
                 }
                 foreach(string s in huh)
