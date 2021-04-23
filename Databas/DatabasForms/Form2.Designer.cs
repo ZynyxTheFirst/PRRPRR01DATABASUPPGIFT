@@ -35,9 +35,20 @@ namespace DatabasForms
             this.lstViewBox = new System.Windows.Forms.ListView();
             this.chInfo = new System.Windows.Forms.ColumnHeader();
             this.chData = new System.Windows.Forms.ColumnHeader();
-            this.lblOne = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtOne = new System.Windows.Forms.TextBox();
+            this.txtBox1 = new System.Windows.Forms.TextBox();
+            this.txtBox2 = new System.Windows.Forms.TextBox();
+            this.txtBox3 = new System.Windows.Forms.TextBox();
+            this.txtBox4 = new System.Windows.Forms.TextBox();
+            this.txtBox5 = new System.Windows.Forms.TextBox();
+            this.txtBox6 = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl4 = new System.Windows.Forms.Label();
+            this.lbl5 = new System.Windows.Forms.Label();
+            this.lbl6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -106,14 +117,14 @@ namespace DatabasForms
             this.chData.Text = "Data";
             this.chData.Width = 100;
             // 
-            // lblOne
+            // lbl1
             // 
-            this.lblOne.AutoSize = true;
-            this.lblOne.Location = new System.Drawing.Point(507, 49);
-            this.lblOne.Name = "lblOne";
-            this.lblOne.Size = new System.Drawing.Size(45, 20);
-            this.lblOne.TabIndex = 5;
-            this.lblOne.Text = "------";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Location = new System.Drawing.Point(992, 63);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(45, 20);
+            this.lbl1.TabIndex = 5;
+            this.lbl1.Text = "------";
             // 
             // textBox1
             // 
@@ -122,22 +133,127 @@ namespace DatabasForms
             this.textBox1.Size = new System.Drawing.Size(744, 27);
             this.textBox1.TabIndex = 6;
             // 
-            // txtOne
+            // txtBox1
             // 
-            this.txtOne.Location = new System.Drawing.Point(558, 44);
-            this.txtOne.Name = "txtOne";
-            this.txtOne.Size = new System.Drawing.Size(125, 27);
-            this.txtOne.TabIndex = 7;
+            this.txtBox1.Location = new System.Drawing.Point(1114, 60);
+            this.txtBox1.Name = "txtBox1";
+            this.txtBox1.Size = new System.Drawing.Size(154, 27);
+            this.txtBox1.TabIndex = 7;
+            // 
+            // txtBox2
+            // 
+            this.txtBox2.Location = new System.Drawing.Point(1114, 132);
+            this.txtBox2.Name = "txtBox2";
+            this.txtBox2.Size = new System.Drawing.Size(154, 27);
+            this.txtBox2.TabIndex = 8;
+            // 
+            // txtBox3
+            // 
+            this.txtBox3.Location = new System.Drawing.Point(1114, 202);
+            this.txtBox3.Name = "txtBox3";
+            this.txtBox3.Size = new System.Drawing.Size(154, 27);
+            this.txtBox3.TabIndex = 9;
+            // 
+            // txtBox4
+            // 
+            this.txtBox4.Location = new System.Drawing.Point(1114, 270);
+            this.txtBox4.Name = "txtBox4";
+            this.txtBox4.Size = new System.Drawing.Size(154, 27);
+            this.txtBox4.TabIndex = 10;
+            // 
+            // txtBox5
+            // 
+            this.txtBox5.Location = new System.Drawing.Point(1114, 337);
+            this.txtBox5.Name = "txtBox5";
+            this.txtBox5.Size = new System.Drawing.Size(154, 27);
+            this.txtBox5.TabIndex = 11;
+            // 
+            // txtBox6
+            // 
+            this.txtBox6.Location = new System.Drawing.Point(1114, 399);
+            this.txtBox6.Name = "txtBox6";
+            this.txtBox6.Size = new System.Drawing.Size(154, 27);
+            this.txtBox6.TabIndex = 12;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnAdd.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.ForeColor = System.Drawing.Color.Black;
+            this.btnAdd.Location = new System.Drawing.Point(992, 462);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(94, 29);
+            this.btnAdd.TabIndex = 13;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // lbl2
+            // 
+            this.lbl2.AutoSize = true;
+            this.lbl2.Location = new System.Drawing.Point(992, 135);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(45, 20);
+            this.lbl2.TabIndex = 14;
+            this.lbl2.Text = "------";
+            // 
+            // lbl3
+            // 
+            this.lbl3.AutoSize = true;
+            this.lbl3.Location = new System.Drawing.Point(992, 205);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(45, 20);
+            this.lbl3.TabIndex = 15;
+            this.lbl3.Text = "------";
+            // 
+            // lbl4
+            // 
+            this.lbl4.AutoSize = true;
+            this.lbl4.Location = new System.Drawing.Point(992, 273);
+            this.lbl4.Name = "lbl4";
+            this.lbl4.Size = new System.Drawing.Size(45, 20);
+            this.lbl4.TabIndex = 16;
+            this.lbl4.Text = "------";
+            // 
+            // lbl5
+            // 
+            this.lbl5.AutoSize = true;
+            this.lbl5.Location = new System.Drawing.Point(992, 340);
+            this.lbl5.Name = "lbl5";
+            this.lbl5.Size = new System.Drawing.Size(45, 20);
+            this.lbl5.TabIndex = 17;
+            this.lbl5.Text = "------";
+            // 
+            // lbl6
+            // 
+            this.lbl6.AutoSize = true;
+            this.lbl6.Location = new System.Drawing.Point(992, 402);
+            this.lbl6.Name = "lbl6";
+            this.lbl6.Size = new System.Drawing.Size(45, 20);
+            this.lbl6.TabIndex = 18;
+            this.lbl6.Text = "------";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1005, 611);
-            this.Controls.Add(this.txtOne);
+            this.ClientSize = new System.Drawing.Size(1308, 611);
+            this.Controls.Add(this.lbl6);
+            this.Controls.Add(this.lbl5);
+            this.Controls.Add(this.lbl4);
+            this.Controls.Add(this.lbl3);
+            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.txtBox6);
+            this.Controls.Add(this.txtBox5);
+            this.Controls.Add(this.txtBox4);
+            this.Controls.Add(this.txtBox3);
+            this.Controls.Add(this.txtBox2);
+            this.Controls.Add(this.txtBox1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lblOne);
+            this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lstViewBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbSelect);
@@ -161,8 +277,20 @@ namespace DatabasForms
         private System.Windows.Forms.ListView lstViewBox;
         private System.Windows.Forms.ColumnHeader chInfo;
         private System.Windows.Forms.ColumnHeader chData;
-        private System.Windows.Forms.Label lblOne;
+        private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox txtOne;
+        private System.Windows.Forms.TextBox txtBox1;
+        private System.Windows.Forms.TextBox txtBox2;
+        private System.Windows.Forms.TextBox txtBox3;
+        private System.Windows.Forms.TextBox txtBox4;
+        private System.Windows.Forms.TextBox txtBox5;
+        private System.Windows.Forms.TextBox txtBox6;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lbl3;
+        private System.Windows.Forms.Label lbl4;
+        private System.Windows.Forms.Label lbl5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl6;
     }
 }

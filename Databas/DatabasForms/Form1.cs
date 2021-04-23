@@ -9,6 +9,8 @@ namespace DatabasForms
         public Form1()
         {
             InitializeComponent();
+
+            
         }
 
 
@@ -20,20 +22,20 @@ namespace DatabasForms
             {
                 string[] elever = { "Paco", "Zynyx", "Mini Fruit", "Shonen" };
                 string[] huh = { "bananan", "batman", "owo", "trex" };
-                listContainer.Items.Clear();
+                lstContainer.Items.Clear();
 
                 foreach (string s in elever)
                 {
                     if (select == "elever")
                     {
-                        listContainer.Items.Add(s);
+                        lstContainer.Items.Add(s);
                     }
                 }
                 foreach(string s in huh)
                 {
                     if (select == "vårdnadshavare")
                     {
-                        listContainer.Items.Add(s);
+                        lstContainer.Items.Add(s);
                     }
                 }
             }
