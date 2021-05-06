@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace DatabasForms
 {
     partial class Form2
@@ -267,6 +269,11 @@ namespace DatabasForms
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

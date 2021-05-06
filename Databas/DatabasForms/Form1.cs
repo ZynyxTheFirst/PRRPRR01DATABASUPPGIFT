@@ -59,10 +59,15 @@ namespace DatabasForms
             {
                 this.Hide();
                 Form2 f2 = new Form2(cmbSelect.Text);
-                f2.ShowDialog();
                 f2.Show();
                 
             }
+        }
+
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
