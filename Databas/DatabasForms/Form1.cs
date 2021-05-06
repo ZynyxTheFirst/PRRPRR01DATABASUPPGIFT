@@ -20,6 +20,7 @@ namespace DatabasForms
             string select = cmbSelect.Text.ToLower();
 
             List<EleverModel> elever = SqliteDataAccess.LoadEleverList();
+            List<VårdnadshavareModel> vårdnadshavare = SqliteDataAccess.LoadVårdnadshavareList();
            
             if (cmbSelect.Text != null)
             {
@@ -34,11 +35,11 @@ namespace DatabasForms
                         lstContainer.Items.Add(s.ToString());
                     }
                 }
-                foreach(string s in huh)
+                foreach(var s in vårdnadshavare)
                 {
                     if (select == "vårdnadshavare")
                     {
-                        lstContainer.Items.Add(s);
+                        lstContainer.Items.Add(s.ToString());
                     }
                 }
             }
