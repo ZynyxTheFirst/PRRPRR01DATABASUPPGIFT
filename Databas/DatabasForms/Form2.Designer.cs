@@ -40,7 +40,6 @@ namespace DatabasForms
             this.lstViewBox = new System.Windows.Forms.ListView();
             this.chInfo = new System.Windows.Forms.ColumnHeader();
             this.chData = new System.Windows.Forms.ColumnHeader();
-            this.lbl1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtBox1 = new System.Windows.Forms.TextBox();
             this.txtBox2 = new System.Windows.Forms.TextBox();
@@ -49,15 +48,15 @@ namespace DatabasForms
             this.txtBox5 = new System.Windows.Forms.TextBox();
             this.txtBox6 = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.lbl2 = new System.Windows.Forms.Label();
-            this.lbl3 = new System.Windows.Forms.Label();
-            this.lbl4 = new System.Windows.Forms.Label();
-            this.lbl5 = new System.Windows.Forms.Label();
-            this.lbl6 = new System.Windows.Forms.Label();
-
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -93,12 +92,12 @@ namespace DatabasForms
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(226, 34);
+            this.label1.Location = new System.Drawing.Point(868, 47);
             this.label1.MinimumSize = new System.Drawing.Size(2, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Add";
+            this.label1.Size = new System.Drawing.Size(37, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "------";
             // 
             // lstViewBox
             // 
@@ -109,11 +108,9 @@ namespace DatabasForms
             this.lstViewBox.GridLines = true;
             this.lstViewBox.HideSelection = false;
             this.lstViewBox.LabelEdit = true;
-
             this.lstViewBox.Location = new System.Drawing.Point(626, 12);
             this.lstViewBox.Name = "lstViewBox";
             this.lstViewBox.Size = new System.Drawing.Size(194, 42);
-
             this.lstViewBox.TabIndex = 4;
             this.lstViewBox.UseCompatibleStateImageBehavior = false;
             this.lstViewBox.View = System.Windows.Forms.View.Details;
@@ -128,15 +125,6 @@ namespace DatabasForms
             // 
             this.chData.Text = "Data";
             this.chData.Width = 100;
-            // 
-            // lbl1
-            // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(868, 47);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(37, 15);
-            this.lbl1.TabIndex = 5;
-            this.lbl1.Text = "------";
             // 
             // textBox1
             // 
@@ -209,54 +197,56 @@ namespace DatabasForms
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
-            // lbl2
+            // label2
             // 
-            this.lbl2.AutoSize = true;
-            this.lbl2.Location = new System.Drawing.Point(868, 101);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(37, 15);
-            this.lbl2.TabIndex = 14;
-            this.lbl2.Text = "------";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(868, 101);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 15);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "------";
             // 
-            // lbl3
+            // label3
             // 
-            this.lbl3.AutoSize = true;
-            this.lbl3.Location = new System.Drawing.Point(868, 154);
-            this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(37, 15);
-            this.lbl3.TabIndex = 15;
-            this.lbl3.Text = "------";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(868, 154);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 15);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "------";
             // 
-            // lbl4
+            // label4
             // 
-            this.lbl4.AutoSize = true;
-            this.lbl4.Location = new System.Drawing.Point(868, 205);
-            this.lbl4.Name = "lbl4";
-            this.lbl4.Size = new System.Drawing.Size(37, 15);
-            this.lbl4.TabIndex = 16;
-            this.lbl4.Text = "------";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(868, 205);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 15);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "------";
             // 
-            // lbl5
+            // label5
             // 
-            this.lbl5.AutoSize = true;
-            this.lbl5.Location = new System.Drawing.Point(868, 255);
-            this.lbl5.Name = "lbl5";
-            this.lbl5.Size = new System.Drawing.Size(37, 15);
-            this.lbl5.TabIndex = 17;
-            this.lbl5.Text = "------";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(868, 255);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 15);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "------";
             // 
-            // lbl6
+            // label6
             // 
-            this.lbl6.AutoSize = true;
-            this.lbl6.Location = new System.Drawing.Point(868, 302);
-            this.lbl6.Name = "lbl6";
-            this.lbl6.Size = new System.Drawing.Size(37, 15);
-            this.lbl6.TabIndex = 18;
-            this.lbl6.Text = "------";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(868, 302);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 15);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "------";
             // 
-
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -285,9 +275,11 @@ namespace DatabasForms
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(484, 262);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(749, 262);
             this.dataGridView1.TabIndex = 20;
-
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // btnExit
             // 
             this.btnExit.Location = new System.Drawing.Point(1035, 12);
@@ -297,7 +289,15 @@ namespace DatabasForms
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(914, 337);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(131, 32);
+            this.btnEdit.TabIndex = 21;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
@@ -305,16 +305,14 @@ namespace DatabasForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1144, 458);
-
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dataGridView1);
-
             this.Controls.Add(this.btnExit);
-
-            this.Controls.Add(this.lbl6);
-            this.Controls.Add(this.lbl5);
-            this.Controls.Add(this.lbl4);
-            this.Controls.Add(this.lbl3);
-            this.Controls.Add(this.lbl2);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtBox6);
             this.Controls.Add(this.txtBox5);
@@ -323,7 +321,6 @@ namespace DatabasForms
             this.Controls.Add(this.txtBox2);
             this.Controls.Add(this.txtBox1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lbl1);
             this.Controls.Add(this.lstViewBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbSelect);
@@ -352,7 +349,6 @@ namespace DatabasForms
         private System.Windows.Forms.ListView lstViewBox;
         private System.Windows.Forms.ColumnHeader chInfo;
         private System.Windows.Forms.ColumnHeader chData;
-        private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtBox1;
         private System.Windows.Forms.TextBox txtBox2;
@@ -361,16 +357,15 @@ namespace DatabasForms
         private System.Windows.Forms.TextBox txtBox5;
         private System.Windows.Forms.TextBox txtBox6;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Label lbl2;
-        private System.Windows.Forms.Label lbl3;
-        private System.Windows.Forms.Label lbl4;
-        private System.Windows.Forms.Label lbl5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbl6;
 
         private System.Windows.Forms.DataGridView dataGridView1;
 
         private System.Windows.Forms.Button btnExit;
-
+        private System.Windows.Forms.Button btnEdit;
     }
 }
