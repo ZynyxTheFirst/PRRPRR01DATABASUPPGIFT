@@ -32,18 +32,6 @@ class Program
         }
     }
 
-    public static void NewElev(int personnummer, string namn, string adress, string epost, int telefonnummer, string klass)
-	{
-        EleverModel elev = new EleverModel(personnummer, namn, adress, epost, telefonnummer, klass);
-        SqliteDataAccess.AddElev(elev);
-    }
-
-    public static void NewVårdnadshavare(int personnummer, string namn, string adress, string epost, int telefonnummer, int elev_perssonnummer)
-	{
-        VårdnadshavareModel vårdnadshavare = new VårdnadshavareModel(personnummer, namn, adress, epost, telefonnummer);
-        SqliteDataAccess.GenerateHushåll(SqliteDataAccess.GetElev(elev_perssonnummer), vårdnadshavare);
-    }
-
     //Fix at some point
     /*
     void Load()

@@ -25,7 +25,7 @@ public class SqliteDataAccess
 	public static void EditElev(int initialPersonnummer, int personnummer, string namn, string adress, string epost, int telefonnummer, string klass)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Execute($"UPDATE Elever SET Elev_Personnummer = {personnummer}, Namn = '{namn}', Adress = '{adress}', Epost = '{epost}', Telefonnummer = {telefonnummer}, Klass_Namn = '{klass}' WHERE Elev_Personnummer = '{initialPersonnummer}'");
+		cnn.Execute($"UPDATE Elever SET Elev_Personnummer = {personnummer}, Namn = '{namn}', Adress = '{adress}', Epost = '{epost}', Telefonnummer = {telefonnummer}, Klass_Namn = '{klass}') WHERE Elev_Personnummer = '{initialPersonnummer}'");
 	}
 
 	public static EleverModel GetElev(int ElevPersonnummer)
@@ -50,6 +50,11 @@ public class SqliteDataAccess
 	#endregion
 
 	#region Vårdnadshavare
+	public static void NewVårdnadshavare(int personnummer, string namn, string adress, string epost, int telefonnummer, int elev_perssonnummer)
+	{
+		VårdnadshavareModel vårdnadshavare = new VårdnadshavareModel(personnummer, namn, adress, epost, telefonnummer);
+		SqliteDataAccess.GenerateHushåll(SqliteDataAccess.GetElev(elev_perssonnummer), vårdnadshavare);
+	}
 	public static void AddVårdnadshavare(VårdnadshavareModel Vårdnadshavare)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
