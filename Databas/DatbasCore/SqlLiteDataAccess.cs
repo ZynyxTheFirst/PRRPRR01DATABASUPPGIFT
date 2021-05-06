@@ -35,21 +35,7 @@ public class SqliteDataAccess
 	public static void RemoveElev(int ElevPersonnummer)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-
-		var cmd = cnn.CreateCommand();
-		cmd.CommandText = "DELETE FROM Elever WHERE Elev_Personnummer='@param1'";
-		IDbDataParameter param = cmd.CreateParameter();
-
-		param.DbType = DbType.AnsiString;
-		param.ParameterName = "param1";
-		param.Value = ElevPersonnummer;
-		cmd.Parameters.Add(param);
-		cmd.Connection.Open();
-		cmd.ExecuteNonQuery();
-		cmd.Connection.Close();
-
-	//	int count = cnn.Execute("DELETE FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'");
-	//	Console.WriteLine("Deleted " + count + " rows");
+		cnn.Execute("DELETE FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'");
 	}
 	#endregion
 
@@ -155,27 +141,4 @@ public class HushållModel
 	public int Elev_Personnummer { get; set; }
 	public int Vårdnadshavare_Personnummer { get; set; }
 }
-public class KlasserModel
-{
-	public string Klass_Namn { get; set; }
-}
-public class KurserModel
-{
-	public int KursID { get; set; }
-	public string Kurs_Namn { get; set; }
-	public int Lärare_Personnummer { get; set; }
-}
-public class KursregisteringModel
-{
-	public int ID { get; set; }
-	public int KursID { get; set; }
-	public int Elev_Personnummer { get; set; }
-}
-public class LärareModel
-{
-	public int Lärare_Personnummer { get; set; }
-	public string Namn { get; set; }
-	public string Adress { get; set; }
-	public string Epost { get; set; }
-	public int Telefonnummer { get; set; }
-}
+
