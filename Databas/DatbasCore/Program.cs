@@ -31,6 +31,17 @@ class Program
             }
         }
     }
+
+    public static void NewElev(int personnummer, string namn, string adress, string epost, int telefonnummer, string klass)
+	{
+        EleverModel elev = new EleverModel(personnummer, namn, adress, epost, telefonnummer, klass);
+        SqliteDataAccess.AddElev(elev);
+    }
+
+    public static void NewVårdnadshavare()
+	{
+
+	}
     //Fix at some point
     /*
     void Load()

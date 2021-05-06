@@ -38,6 +38,15 @@ public class SqliteDataAccess
 	}
 	#endregion
 
+	#region Hushåll
+	public static void GenerateHushåll(EleverModel elev, VårdnadshavareModel vårdnadshavare)
+	{
+		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
+		cnn.Query<HushållModel>($"INSERT INTO Hushåll VALUES ({elev.Elev_Personnummer}, {vårdnadshavare.Vårdnadshavare_Personnummer})");
+	}
+
+	#endregion
+
 	///Finished with the exception of this tying in with other tables and intermidiary table generation
 	#region Vårdnadshavare
 	public static void AddVårdnadshavare(VårdnadshavareModel Vårdnadshavare)
@@ -151,6 +160,18 @@ public class SqliteDataAccess
 
 public class EleverModel
 {
+	public EleverModel() { }
+
+	public EleverModel(int personnummer, string namn, string adress, string epost, int telefonnummer, string klass)
+	{
+		Elev_Personnummer = personnummer;
+		Namn = namn;
+		Adress = adress;
+		Epost = epost;
+		Telefonnummer = telefonnummer;
+		Klass_Namn = klass;
+	}
+
 	public int Elev_Personnummer { get; set; }
 	public string Namn { get; set; }
 	public string Adress { get; set; }
@@ -158,10 +179,13 @@ public class EleverModel
 	public int Telefonnummer { get; set; }
 	public string Klass_Namn { get; set; }
 
+	/*
+
 	public override string ToString()
 	{
 		return Namn;
 	}
+	¨*/
 }
 public class HushållModel
 {
