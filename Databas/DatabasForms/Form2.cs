@@ -25,7 +25,7 @@ namespace DatabasForms
             f1.ShowDialog();
         }
 
-        private void cmbSelect_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             string select = cmbSelect.Text.ToLower();
             lstViewBox.Columns.Clear();
@@ -91,13 +91,13 @@ namespace DatabasForms
 
 
 
-        private void lstViewBox_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        private void LstViewBox_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             e.Cancel = true;
             e.NewWidth = lstViewBox.Columns[e.ColumnIndex].Width;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             AddElever(txtBox1.Text, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtBox5.Text, txtBox6.Text);
 

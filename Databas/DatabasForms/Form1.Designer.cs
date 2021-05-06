@@ -49,7 +49,7 @@ namespace DatabasForms
             this.cmbSelect.Size = new System.Drawing.Size(200, 28);
             this.cmbSelect.TabIndex = 0;
             this.cmbSelect.Tag = "cmbSelect";
-            this.cmbSelect.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbSelect.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // lstContainer
             // 
@@ -75,7 +75,7 @@ namespace DatabasForms
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // Form1
             // 

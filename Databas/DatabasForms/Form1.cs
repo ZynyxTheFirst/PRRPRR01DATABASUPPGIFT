@@ -10,12 +10,12 @@ namespace DatabasForms
         public Form1()
         {
             InitializeComponent();
-            lstContainer.DoubleClick += lstContainer_MouseDoubleClick;
+            lstContainer.DoubleClick += LstContainer_MouseDoubleClick;
             
         }
 
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string select = cmbSelect.Text.ToLower();
 
@@ -45,7 +45,7 @@ namespace DatabasForms
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form2 f2 = new Form2(cmbSelect.Text);
@@ -53,7 +53,7 @@ namespace DatabasForms
             f2.Show();
         }
         
-        void lstContainer_MouseDoubleClick(object sender, EventArgs e)
+        void LstContainer_MouseDoubleClick(object sender, EventArgs e)
         {
             if(lstContainer.SelectedItem != null)
             {
