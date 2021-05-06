@@ -48,18 +48,20 @@ namespace DatabasForms
         private void btnAdd_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form2 f2 = new Form2();
+            Form2 f2 = new Form2(cmbSelect.Text);
             f2.ShowDialog();
+            f2.Show();
         }
         
         void lstContainer_MouseDoubleClick(object sender, EventArgs e)
         {
             if(lstContainer.SelectedItem != null)
             {
-
                 this.Hide();
-                Form2 f2 = new Form2();
+                Form2 f2 = new Form2(cmbSelect.Text);
                 f2.ShowDialog();
+                f2.Show();
+                
             }
         }
     }
