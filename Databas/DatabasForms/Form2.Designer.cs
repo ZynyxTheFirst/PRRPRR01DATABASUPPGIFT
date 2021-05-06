@@ -74,7 +74,7 @@ namespace DatabasForms
             this.cmbSelect.Name = "cmbSelect";
             this.cmbSelect.Size = new System.Drawing.Size(138, 28);
             this.cmbSelect.TabIndex = 1;
-            this.cmbSelect.SelectedIndexChanged += new System.EventHandler(this.cmbSelect_SelectedIndexChanged);
+            this.cmbSelect.SelectedIndexChanged += new System.EventHandler(this.CmbSelect_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -105,7 +105,7 @@ namespace DatabasForms
             this.lstViewBox.TabIndex = 4;
             this.lstViewBox.UseCompatibleStateImageBehavior = false;
             this.lstViewBox.View = System.Windows.Forms.View.Details;
-            this.lstViewBox.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lstViewBox_ColumnWidthChanging);
+            this.lstViewBox.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.LstViewBox_ColumnWidthChanging);
             // 
             // chInfo
             // 
@@ -187,7 +187,7 @@ namespace DatabasForms
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // lbl2
             // 
