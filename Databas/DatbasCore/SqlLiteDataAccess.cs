@@ -195,7 +195,7 @@ public class EleverModel
 	{
 		return Namn;
 	}
-	¨*/
+	*/
 }
 
 public class VårdnadshavareModel

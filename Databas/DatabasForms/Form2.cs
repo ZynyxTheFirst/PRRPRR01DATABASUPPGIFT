@@ -80,9 +80,9 @@ namespace DatabasForms
             }
         }
         
-        private void AddElever(String personnummer, String name, String adress, String epost, String telefonnummer, String klass)
+        private void AddElever(string personnummer, string name, string adress, string epost, string telefonnummer, string klass)
         {
-            String[] row = { personnummer, name, adress, epost, telefonnummer, klass };
+            string[] row = { personnummer, name, adress, epost, telefonnummer, klass };
 
             ListViewItem item = new ListViewItem(row);
 
@@ -99,8 +99,8 @@ namespace DatabasForms
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            AddElever(txtBox1.Text, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtBox5.Text, txtBox6.Text);
-
+         
+       
             txtBox1.Text = "";
             txtBox2.Text = "";
             txtBox3.Text = "";
