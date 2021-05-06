@@ -9,6 +9,16 @@ using System.Linq;
 
 public class SqliteDataAccess
 {
+
+	public static void NewElev(int personnummer, string namn, string adress, string epost, int telefonnummer, string klass)
+	{
+		EleverModel elev = new EleverModel(personnummer, namn, adress, epost, telefonnummer, klass);
+		AddElev(elev);
+
+
+	}
+
+
 	//Untested should work, might not
 	//Fix "intermidiary" table generation (kursregistrering etc.)
 
@@ -16,9 +26,47 @@ public class SqliteDataAccess
 	#region Elever
 	public static void AddElev(EleverModel Elev)
 	{
+		//using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
+		//cnn.Execute($"INSERT INTO Elever VALUES (@Elev_Personnummer, @Namn, @Adress, @Epost, @Telefonnummer, @Klass_Namn)", Elev);
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Execute($"INSERT INTO Elever VALUES (@Elev_Personnummer, @Namn, @Adress, @Epost, @Telefonnummer, @Klass_Namn)", Elev);
+
+		var cmd = cnn.CreateCommand();
+		cmd.CommandText = "INSERT INTO Elever VALUES (@param1, '@param2', '@param3', '@param4', @param5, '@param6')";
+		IDbDataParameter param1 = cmd.CreateParameter();
+		param1.DbType = DbType.Int32;
+		param1.ParameterName = "param1";
+		param1.Value = Elev.Elev_Personnummer;
+		cmd.Parameters.Add(param1);
+		IDbDataParameter param2 = cmd.CreateParameter();
+		param2.DbType = DbType.AnsiString;
+		param2.ParameterName = "param2";
+		param2.Value = Elev.Namn;
+		cmd.Parameters.Add(param2);
+		IDbDataParameter param3 = cmd.CreateParameter();
+		param3.DbType = DbType.AnsiString;
+		param3.ParameterName = "param1";
+		param3.Value = Elev.Adress;
+		cmd.Parameters.Add(param3);
+		IDbDataParameter param4 = cmd.CreateParameter();
+		param4.DbType = DbType.AnsiString;
+		param4.ParameterName = "param4";
+		param4.Value = Elev.Epost;
+		cmd.Parameters.Add(param4);
+		IDbDataParameter param5 = cmd.CreateParameter();
+		param5.DbType = DbType.Int32;
+		param5.ParameterName = "param5";
+		param5.Value = Elev.Telefonnummer;
+		cmd.Parameters.Add(param5);
+		IDbDataParameter param6 = cmd.CreateParameter();
+		param6.DbType = DbType.AnsiString;
+		param6.ParameterName = "param6";
+		param6.Value = Elev.Klass_Namn;
+		cmd.Parameters.Add(param6);
+		cmd.Connection.Open();
+		cmd.ExecuteNonQuery();
+		cmd.Connection.Close();
 	}
+
 	public static List<EleverModel> LoadEleverList()
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
@@ -189,8 +237,11 @@ public class EleverModel
 	public int Telefonnummer { get; set; }
 	public string Klass_Namn { get; set; }
 
+<<<<<<< Updated upstream
 	/*
 
+=======
+>>>>>>> Stashed changes
 	public override string ToString()
 	{
 		return Namn;
