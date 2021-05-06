@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
+
 namespace DatabasForms
 {
     public partial class Form1 : Form
@@ -9,31 +10,36 @@ namespace DatabasForms
         public Form1()
         {
             InitializeComponent();
+            lstContainer.DoubleClick += lstContainer_MouseDoubleClick;
+            
         }
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string select = cmbSelect.Text.ToLower();
 
             List<EleverModel> elever = SqliteDataAccess.LoadEleverList();
+            List<VårdnadshavareModel> vårdnadshavare = SqliteDataAccess.LoadVårdnadshavareList();
            
             if (cmbSelect.Text != null)
             {
                 string[] huh = { "bananan", "batman", "owo", "trex" };
-                listContainer.Items.Clear();
+                lstContainer.Items.Clear();
 
                 foreach (var s in elever)
                 {
                     if (select == "elever")
                     {
-                        listContainer.Items.Add(s.ToString());
+
+                        lstContainer.Items.Add(s.ToString());
                     }
                 }
-                foreach(string s in huh)
+                foreach(var s in vårdnadshavare)
                 {
                     if (select == "vårdnadshavare")
                     {
-                        listContainer.Items.Add(s);
+                        lstContainer.Items.Add(s.ToString());
                     }
                 }
             }
@@ -44,6 +50,17 @@ namespace DatabasForms
             this.Hide();
             Form2 f2 = new Form2();
             f2.ShowDialog();
+        }
+        
+        void lstContainer_MouseDoubleClick(object sender, EventArgs e)
+        {
+            if(lstContainer.SelectedItem != null)
+            {
+
+                this.Hide();
+                Form2 f2 = new Form2();
+                f2.ShowDialog();
+            }
         }
     }
 }
