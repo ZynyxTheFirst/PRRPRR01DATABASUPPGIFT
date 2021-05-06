@@ -54,8 +54,10 @@ namespace DatabasForms
             this.lbl4 = new System.Windows.Forms.Label();
             this.lbl5 = new System.Windows.Forms.Label();
             this.lbl6 = new System.Windows.Forms.Label();
+
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBack
@@ -107,9 +109,11 @@ namespace DatabasForms
             this.lstViewBox.GridLines = true;
             this.lstViewBox.HideSelection = false;
             this.lstViewBox.LabelEdit = true;
+
             this.lstViewBox.Location = new System.Drawing.Point(626, 12);
             this.lstViewBox.Name = "lstViewBox";
             this.lstViewBox.Size = new System.Drawing.Size(194, 42);
+
             this.lstViewBox.TabIndex = 4;
             this.lstViewBox.UseCompatibleStateImageBehavior = false;
             this.lstViewBox.View = System.Windows.Forms.View.Details;
@@ -250,6 +254,7 @@ namespace DatabasForms
             this.lbl6.TabIndex = 18;
             this.lbl6.Text = "------";
             // 
+
             // dataGridView1
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -282,6 +287,17 @@ namespace DatabasForms
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(484, 262);
             this.dataGridView1.TabIndex = 20;
+
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(1035, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 19;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+
             // 
             // Form2
             // 
@@ -289,7 +305,11 @@ namespace DatabasForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1144, 458);
+
             this.Controls.Add(this.dataGridView1);
+
+            this.Controls.Add(this.btnExit);
+
             this.Controls.Add(this.lbl6);
             this.Controls.Add(this.lbl5);
             this.Controls.Add(this.lbl4);
@@ -347,6 +367,10 @@ namespace DatabasForms
         private System.Windows.Forms.Label lbl5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl6;
+
         private System.Windows.Forms.DataGridView dataGridView1;
+
+        private System.Windows.Forms.Button btnExit;
+
     }
 }

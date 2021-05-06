@@ -15,7 +15,6 @@ namespace DatabasForms
             
         }
 
-
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string select = cmbSelect.Text.ToLower();
@@ -25,7 +24,6 @@ namespace DatabasForms
            
             if (cmbSelect.Text != null)
             {
-                string[] huh = { "bananan", "batman", "owo", "trex" };
                 lstContainer.Items.Clear();
 
                 foreach (var s in elever)
@@ -50,7 +48,6 @@ namespace DatabasForms
         {
             this.Hide();
             Form2 f2 = new Form2(cmbSelect.Text);
-            f2.ShowDialog();
             f2.Show();
         }
         
@@ -69,9 +66,26 @@ namespace DatabasForms
         }
 
 
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+
+            List<EleverModel> elever = SqliteDataAccess.LoadEleverList();
+
+            foreach (var s in elever)
+            { 
+                if (s.ToString() == lstContainer.SelectedItem.ToString())
+                {
+                    SqliteDataAccess.RemoveElev(s.GetPersonnummer());
+                }
+            }
+
+        }
+
     }
 }

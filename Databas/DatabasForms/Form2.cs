@@ -79,7 +79,7 @@ namespace DatabasForms
                 dataGridView1.DataSource = vårdnadshavare;
             }
         }
-       
+
 
         private void LstViewBox_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
@@ -93,6 +93,13 @@ namespace DatabasForms
             int txtbox5int = Int32.Parse(txtBox5.Text);
             EleverModel elev = new EleverModel(txtbox1int, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtbox5int, txtBox6.Text);
             SqliteDataAccess.AddElev(elev);
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+
         }
 
             private void btnExit_Click(object sender, EventArgs e)
@@ -105,3 +112,4 @@ namespace DatabasForms
 
         
 }
+
