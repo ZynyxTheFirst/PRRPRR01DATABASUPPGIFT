@@ -25,25 +25,31 @@ public class SqliteDataAccess
 		var output = cnn.Query<EleverModel>("SELECT * FROM Elever", new DynamicParameters());
 		return output.ToList();
 	}
-	public static EleverModel LoadElev(string ElevPersonnummer)
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		var output = cnn.Query<EleverModel>("SELECT * FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'", new DynamicParameters());
-		return output.ToList()[0];
-	}
 
 	public static EleverModel GetElev(string ElevPersonnummer)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		var output = cnn.Query<EleverModel>("SELECT * FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'", new DynamicParameters());
-		EleverModel elev = new EleverModel(int.Parse(output.ToList()[0].ToString()), output.ToList()[1].ToString(), output.ToList()[2].ToString(), output.ToList()[3].ToString(), int.Parse(output.ToList()[4].ToString()), output.ToList()[5].ToString());
-		return elev;
+		return cnn.QueryFirst<EleverModel>("SELECT * FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'", new DynamicParameters());
+//		var output = cnn.Query<EleverModel>("SELECT * FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'", new DynamicParameters());
+//		return output.First();
 	}
 
 	public static void RemoveElev(string ElevPersonnummer)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Query<EleverModel>("DELETE FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'");
+
+		var cmd = cnn.CreateCommand();
+		cmd.CommandText = "DELETE FROM Elever WHERE Elev_Personnummer='@param1'";
+		IDbDataParameter param = cmd.CreateParameter();
+
+		param.DbType = DbType.AnsiString;
+		param.ParameterName = "param1";
+		param.Value = ElevPersonnummer;
+		cmd.Parameters.Add(param);
+		cmd.ExecuteNonQuery();
+
+	//	int count = cnn.Execute("DELETE FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'");
+	//	Console.WriteLine("Deleted " + count + " rows");
 	}
 	#endregion
 
@@ -52,7 +58,8 @@ public class SqliteDataAccess
 	public static void GenerateHushåll(EleverModel elev, VårdnadshavareModel vårdnadshavare)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Query<HushållModel>($"INSERT INTO Hushåll VALUES ({elev.Elev_Personnummer}, {vårdnadshavare.Vårdnadshavare_Personnummer})");
+		cnn.Execute($"INSERT INTO Hushåll VALUES ({elev.Elev_Personnummer}, {vårdnadshavare.Vårdnadshavare_Personnummer})");
+		//cnn.Query<HushållModel>($"INSERT INTO Hushåll VALUES ({elev.Elev_Personnummer}, {vårdnadshavare.Vårdnadshavare_Personnummer})");
 	}
 
 	#endregion
