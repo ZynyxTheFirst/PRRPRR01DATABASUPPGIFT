@@ -10,12 +10,12 @@ namespace DatabasForms
         public Form1()
         {
             InitializeComponent();
-            lstContainer.DoubleClick += lstContainer_MouseDoubleClick;
+            lstContainer.DoubleClick += LstContainer_MouseDoubleClick;
             
         }
 
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string select = cmbSelect.Text.ToLower();
             List<EleverModel> elever = new List<EleverModel>();
@@ -28,7 +28,6 @@ namespace DatabasForms
            
             if (cmbSelect.Text != null)
             {
-                string[] huh = { "bananan", "batman", "owo", "trex" };
                 lstContainer.Items.Clear();
 
                 foreach (var s in elever)
@@ -49,29 +48,29 @@ namespace DatabasForms
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form2 f2 = new Form2(cmbSelect.Text);
-            f2.ShowDialog();
             f2.Show();
         }
         
-        void lstContainer_MouseDoubleClick(object sender, EventArgs e)
+        void LstContainer_MouseDoubleClick(object sender, EventArgs e)
         {
             if(lstContainer.SelectedItem != null)
             {
                 this.Hide();
                 Form2 f2 = new Form2(cmbSelect.Text);
-                f2.ShowDialog();
                 f2.Show();
                 
             }
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
         {
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

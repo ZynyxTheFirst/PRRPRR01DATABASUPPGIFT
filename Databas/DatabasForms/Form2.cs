@@ -25,7 +25,7 @@ namespace DatabasForms
             f1.ShowDialog();
         }
 
-        private void cmbSelect_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             string select = cmbSelect.Text.ToLower();
             lstViewBox.Columns.Clear();
@@ -80,18 +80,24 @@ namespace DatabasForms
             }
         }
 
-        private void lstViewBox_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+
+        private void LstViewBox_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             e.Cancel = true;
             e.NewWidth = lstViewBox.Columns[e.ColumnIndex].Width;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             int txtbox1int = Int32.Parse(txtBox1.Text);
             int txtbox5int = Int32.Parse(txtBox5.Text);
             EleverModel elev = new EleverModel(txtbox1int, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtbox5int, txtBox6.Text);
             SqliteDataAccess.AddElev(elev);
+
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
