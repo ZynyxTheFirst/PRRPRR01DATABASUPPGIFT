@@ -23,6 +23,7 @@ namespace DatabasForms
             vårdnadshavare = GetVårdnadshavare();
             InitializeComponent();
 
+            btnEdit.Hide();
             lstViewBox.View = View.Details;
             cmbSelect.Text = strComboBox;
         }
@@ -56,21 +57,26 @@ namespace DatabasForms
             lstViewBox.FullRowSelect = true;
 
             #region Label Startup
-            lbl1.Text = "-----";
-            lbl2.Text = "-----";
-            lbl3.Text = "-----";
-            lbl4.Text = "-----";
-            lbl5.Text = "-----";
-            lbl6.Text = "-----";
+            label1.Text = "-----";
+            label2.Text = "-----";
+            label3.Text = "-----";
+            label4.Text = "-----";
+            label5.Text = "-----";
+            label6.Text = "-----";
             #endregion
 
             if (select == "elever")
             {
                 var elever = this.elever;
-
                 dataGridView1.DataSource = elever;
 
-           
+                label1.Text = "Personnummer";
+                label2.Text = "Namn";
+                label3.Text = "Adress";
+                label4.Text = "Epost";
+                label5.Text = "Telefonnummer";
+                label6.Text = "Klass";
+
             }
 
             if (select == "vårdnadshavare")
@@ -102,9 +108,25 @@ namespace DatabasForms
 
         }
 
-       
-    }
-
-        
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                btnAdd.Hide();
+                btnEdit.Show();
+                var selectedElev = dataGridView1.SelectedRows[0].DataBoundItem as EleverModel;
+                txtBox1.Text = selectedElev.Elev_Personnummer.ToString();
+                txtBox2.Text = selectedElev.Namn.ToString();
+                txtBox3.Text = selectedElev.Adress;
+                txtBox4.Text = selectedElev.Epost;
+                txtBox5.Text = selectedElev.Telefonnummer.ToString();
+                txtBox6.Text = selectedElev.Klass_Namn;
+            }
+            catch
+            {
+                MessageBox.Show("Some error occured: " + "Print only numbers in [Elev_Personnummer] and [Telefonnummer]"); 
+            }
+        }
+    }      
 }
 
