@@ -18,8 +18,12 @@ namespace DatabasForms
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string select = cmbSelect.Text.ToLower();
+            List<EleverModel> elever = new List<EleverModel>();
+            foreach (EleverModel elev in SqliteDataAccess.LoadEleverList())
+            {
+                elever.Add(elev);
+            }
 
-            List<EleverModel> elever = SqliteDataAccess.LoadEleverList();
             List<VårdnadshavareModel> vårdnadshavare = SqliteDataAccess.LoadVårdnadshavareList();
            
             if (cmbSelect.Text != null)
@@ -63,6 +67,11 @@ namespace DatabasForms
                 f2.Show();
                 
             }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

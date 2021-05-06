@@ -189,13 +189,13 @@ public class EleverModel
 	public int Telefonnummer { get; set; }
 	public string Klass_Namn { get; set; }
 
-	/*
+	
 
 	public override string ToString()
 	{
 		return Namn;
 	}
-	¨*/
+	
 }
 
 public class VårdnadshavareModel

@@ -79,17 +79,6 @@ namespace DatabasForms
                 txtBox6.Hide();
             }
         }
-        
-        private void AddElever(String personnummer, String name, String adress, String epost, String telefonnummer, String klass)
-        {
-            String[] row = { personnummer, name, adress, epost, telefonnummer, klass };
-
-            ListViewItem item = new ListViewItem(row);
-
-            lstViewBox.Items.Add(item);
-        }
-
-
 
         private void lstViewBox_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
@@ -99,14 +88,10 @@ namespace DatabasForms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddElever(txtBox1.Text, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtBox5.Text, txtBox6.Text);
-
-            txtBox1.Text = "";
-            txtBox2.Text = "";
-            txtBox3.Text = "";
-            txtBox4.Text = "";
-            txtBox5.Text = "";
-            txtBox6.Text = "";
+            int txtbox1int = Int32.Parse(txtBox1.Text);
+            int txtbox5int = Int32.Parse(txtBox5.Text);
+            EleverModel elev = new EleverModel(txtbox1int, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtbox5int, txtBox6.Text);
+            SqliteDataAccess.AddElev(elev);
         }
     }
 }

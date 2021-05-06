@@ -32,6 +32,7 @@ namespace DatabasForms
             this.cmbSelect = new System.Windows.Forms.ComboBox();
             this.lstContainer = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbSelect
@@ -43,10 +44,9 @@ namespace DatabasForms
             "Kurser",
             "Lärare",
             "Klasser"});
-            this.cmbSelect.Location = new System.Drawing.Point(119, 55);
-            this.cmbSelect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbSelect.Location = new System.Drawing.Point(104, 41);
             this.cmbSelect.Name = "cmbSelect";
-            this.cmbSelect.Size = new System.Drawing.Size(200, 28);
+            this.cmbSelect.Size = new System.Drawing.Size(176, 23);
             this.cmbSelect.TabIndex = 0;
             this.cmbSelect.Tag = "cmbSelect";
             this.cmbSelect.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -54,38 +54,46 @@ namespace DatabasForms
             // lstContainer
             // 
             this.lstContainer.FormattingEnabled = true;
-            this.lstContainer.ItemHeight = 20;
+            this.lstContainer.ItemHeight = 15;
             this.lstContainer.Items.AddRange(new object[] {
             "Please select element ",
             "in the dropdown ",
             "above."});
-            this.lstContainer.Location = new System.Drawing.Point(119, 136);
-            this.lstContainer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lstContainer.Location = new System.Drawing.Point(104, 102);
             this.lstContainer.Name = "lstContainer";
-            this.lstContainer.Size = new System.Drawing.Size(200, 224);
+            this.lstContainer.Size = new System.Drawing.Size(176, 169);
             this.lstContainer.TabIndex = 1;
             this.lstContainer.Tag = "lstContainer";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(133, 425);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Location = new System.Drawing.Point(116, 319);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(150, 50);
+            this.btnAdd.Size = new System.Drawing.Size(131, 38);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // BtnDelete
+            // 
+            this.BtnDelete.Location = new System.Drawing.Point(275, 319);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(120, 38);
+            this.BtnDelete.TabIndex = 3;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 600);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstContainer);
             this.Controls.Add(this.cmbSelect);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -97,6 +105,7 @@ namespace DatabasForms
         private System.Windows.Forms.ComboBox cmbSelect;
         private System.Windows.Forms.ListBox lstContainer;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button BtnDelete;
     }
 }
 
