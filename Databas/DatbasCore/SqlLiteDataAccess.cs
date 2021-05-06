@@ -9,10 +9,6 @@ using System.Linq;
 
 public class SqliteDataAccess
 {
-	//Untested should work, might not
-	//Fix "intermidiary" table generation (kursregistrering etc.)
-
-	///Finished with the exception of this tying in with other tables and intermidiary table generation
 	#region Elever
 	public static void AddElev(EleverModel Elev)
 	{
@@ -24,6 +20,14 @@ public class SqliteDataAccess
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
 		var output = cnn.Query<EleverModel>("SELECT * FROM Elever", new DynamicParameters());
 		return output.ToList();
+	}
+
+	public static void EditElev(int initialPersonnummer, int personnummer, string namn, string adress, string epost, int telefonnummer, string klass)
+	{
+		EleverModel elev = new EleverModel(personnummer, namn, adress, epost, telefonnummer, klass);
+		AddElev(elev);
+		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
+		cnn.Execute($"UPDATE Elever WHERE Elev_Personnummer = '" + initialPersonnummer + "' SET Elev_Personnummer = @Elev_Personnummer, Namn = '@Namn', Adress = @Adress, Epost = @Epost, Telefonnummer = '@Telefonnummer', Klass_Namn = @Klass_Namn)", elev);
 	}
 
 	public static EleverModel GetElev(int ElevPersonnummer)
@@ -39,18 +43,14 @@ public class SqliteDataAccess
 	}
 	#endregion
 
-
 	#region Hushåll
 	public static void GenerateHushåll(EleverModel elev, VårdnadshavareModel vårdnadshavare)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
 		cnn.Execute($"INSERT INTO Hushåll VALUES ({elev.Elev_Personnummer}, {vårdnadshavare.Vårdnadshavare_Personnummer})");
-		//cnn.Query<HushållModel>($"INSERT INTO Hushåll VALUES ({elev.Elev_Personnummer}, {vårdnadshavare.Vårdnadshavare_Personnummer})");
 	}
-
 	#endregion
 
-	///Finished with the exception of this tying in with other tables and intermidiary table generation
 	#region Vårdnadshavare
 	public static void AddVårdnadshavare(VårdnadshavareModel Vårdnadshavare)
 	{
@@ -76,7 +76,6 @@ public class SqliteDataAccess
 	}
 	#endregion
 
-	//viktig rör ej
 	private static string LoadConnectionString(string id = "Default")
 	{
 		return ConfigurationManager.ConnectionStrings[id].ConnectionString;
