@@ -38,7 +38,7 @@ class Program
         SqliteDataAccess.AddElev(elev);
     }
 
-    public static void NewVårdnadshavare(int personnummer, string namn, string adress, string epost, int telefonnummer, string elev_perssonnummer)
+    public static void NewVårdnadshavare(int personnummer, string namn, string adress, string epost, int telefonnummer, int elev_perssonnummer)
 	{
         VårdnadshavareModel vårdnadshavare = new VårdnadshavareModel(personnummer, namn, adress, epost, telefonnummer);
         SqliteDataAccess.GenerateHushåll(SqliteDataAccess.GetElev(elev_perssonnummer), vårdnadshavare);

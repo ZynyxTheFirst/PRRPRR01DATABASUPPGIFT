@@ -26,7 +26,7 @@ public class SqliteDataAccess
 		return output.ToList();
 	}
 
-	public static EleverModel GetElev(string ElevPersonnummer)
+	public static EleverModel GetElev(int ElevPersonnummer)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
 		return cnn.QueryFirst<EleverModel>("SELECT * FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'", new DynamicParameters());
@@ -34,7 +34,7 @@ public class SqliteDataAccess
 //		return output.First();
 	}
 
-	public static void RemoveElev(string ElevPersonnummer)
+	public static void RemoveElev(int ElevPersonnummer)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
 
@@ -196,11 +196,13 @@ public class EleverModel
 	public int Telefonnummer { get; set; }
 	public string Klass_Namn { get; set; }
 
-	
-
 	public override string ToString()
 	{
 		return Namn;
+	}
+	public int GetPersonnummer()
+	{
+		return Elev_Personnummer;
 	}
 }
 

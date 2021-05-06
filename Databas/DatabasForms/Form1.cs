@@ -14,16 +14,11 @@ namespace DatabasForms
             
         }
 
-
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string select = cmbSelect.Text.ToLower();
-            List<EleverModel> elever = new List<EleverModel>();
-            foreach (EleverModel elev in SqliteDataAccess.LoadEleverList())
-            {
-                elever.Add(elev);
-            }
 
+            List<EleverModel> elever = SqliteDataAccess.LoadEleverList();
             List<VårdnadshavareModel> vårdnadshavare = SqliteDataAccess.LoadVårdnadshavareList();
            
             if (cmbSelect.Text != null)
@@ -66,11 +61,26 @@ namespace DatabasForms
             }
         }
 
-        {
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+
+            List<EleverModel> elever = SqliteDataAccess.LoadEleverList();
+
+            foreach (var s in elever)
+            { 
+                if (s.ToString() == lstContainer.SelectedItem.ToString())
+                {
+                    SqliteDataAccess.RemoveElev(s.GetPersonnummer());
+                }
+            }
+
         }
     }
 }

@@ -32,8 +32,8 @@ namespace DatabasForms
             this.cmbSelect = new System.Windows.Forms.ComboBox();
             this.lstContainer = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
-
             this.btnExit = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbSelect
@@ -88,10 +88,10 @@ namespace DatabasForms
             // 
             // BtnDelete
             // 
-            this.BtnDelete.Location = new System.Drawing.Point(275, 319);
+            this.BtnDelete.Location = new System.Drawing.Point(282, 319);
             this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(120, 38);
-            this.BtnDelete.TabIndex = 3;
+            this.BtnDelete.Size = new System.Drawing.Size(143, 38);
+            this.BtnDelete.TabIndex = 4;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
@@ -101,7 +101,7 @@ namespace DatabasForms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-
+            this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstContainer);
@@ -119,6 +119,7 @@ namespace DatabasForms
         private System.Windows.Forms.Button btnAdd;
 
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button BtnDelete;
     }
 }
 
