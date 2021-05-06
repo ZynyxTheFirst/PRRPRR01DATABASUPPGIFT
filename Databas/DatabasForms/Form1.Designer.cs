@@ -32,8 +32,10 @@ namespace DatabasForms
             this.cmbSelect = new System.Windows.Forms.ComboBox();
             this.lstContainer = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
+
             this.btnExit = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
+
             this.SuspendLayout();
             // 
             // cmbSelect
@@ -85,6 +87,7 @@ namespace DatabasForms
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+
             // 
             // BtnDelete
             // 
@@ -95,13 +98,16 @@ namespace DatabasForms
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+
             this.Controls.Add(this.BtnDelete);
+
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lstContainer);
@@ -119,6 +125,7 @@ namespace DatabasForms
         private System.Windows.Forms.Button btnAdd;
 
         private System.Windows.Forms.Button btnExit;
+
         private System.Windows.Forms.Button BtnDelete;
     }
 }
