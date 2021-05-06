@@ -53,9 +53,7 @@ namespace DatabasForms
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-
             this.SuspendLayout();
             // 
             // btnBack
@@ -270,6 +268,7 @@ namespace DatabasForms
             this.btnEdit.TabIndex = 21;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // Form2
             // 

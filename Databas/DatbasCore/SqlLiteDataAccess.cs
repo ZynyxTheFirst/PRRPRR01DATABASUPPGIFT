@@ -27,7 +27,7 @@ public class SqliteDataAccess
 		EleverModel elev = new EleverModel(personnummer, namn, adress, epost, telefonnummer, klass);
 		AddElev(elev);
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Execute($"UPDATE Elever WHERE Elev_Personnummer = '" + initialPersonnummer + "' SET Elev_Personnummer = @Elev_Personnummer, Namn = '@Namn', Adress = @Adress, Epost = @Epost, Telefonnummer = '@Telefonnummer', Klass_Namn = @Klass_Namn)", elev);
+		cnn.Execute($"UPDATE Elever SET Elev_Personnummer = @Elev_Personnummer, Namn = '@Namn', Adress = @Adress, Epost = @Epost, Telefonnummer = '@Telefonnummer', Klass_Namn = @Klass_Namn ) WHERE Elev_Personnummer = '" + initialPersonnummer + "'", elev);
 	}
 
 	public static EleverModel GetElev(int ElevPersonnummer)

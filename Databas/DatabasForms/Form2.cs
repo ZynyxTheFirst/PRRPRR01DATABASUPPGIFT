@@ -104,6 +104,8 @@ namespace DatabasForms
 
         }
 
+        int initiallPersonnummer;
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -111,6 +113,7 @@ namespace DatabasForms
                 btnAdd.Hide();
                 btnEdit.Show();
                 var selectedElev = dataGridView1.SelectedRows[0].DataBoundItem as EleverModel;
+                initiallPersonnummer = selectedElev.GetPersonnummer();
                 txtBox1.Text = selectedElev.Elev_Personnummer.ToString();
                 txtBox2.Text = selectedElev.Namn.ToString();
                 txtBox3.Text = selectedElev.Adress;
@@ -122,6 +125,14 @@ namespace DatabasForms
             {
                 MessageBox.Show("Some error occured: " + "Print only numbers in [Elev_Personnummer] and [Telefonnummer]"); 
             }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            int txtbox1int = Int32.Parse(txtBox1.Text);
+            int txtbox5int = Int32.Parse(txtBox5.Text);
+            SqliteDataAccess.EditElev(initiallPersonnummer, txtbox1int, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtbox5int, txtBox6.Text);
+
         }
     }      
 }
