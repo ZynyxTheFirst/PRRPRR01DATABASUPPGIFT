@@ -37,9 +37,6 @@ namespace DatabasForms
             this.btnBack = new System.Windows.Forms.Button();
             this.cmbSelect = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lstViewBox = new System.Windows.Forms.ListView();
-            this.chInfo = new System.Windows.Forms.ColumnHeader();
-            this.chData = new System.Windows.Forms.ColumnHeader();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtBox1 = new System.Windows.Forms.TextBox();
             this.txtBox2 = new System.Windows.Forms.TextBox();
@@ -56,7 +53,9 @@ namespace DatabasForms
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+
             this.SuspendLayout();
             // 
             // btnBack
@@ -98,33 +97,6 @@ namespace DatabasForms
             this.label1.Size = new System.Drawing.Size(37, 15);
             this.label1.TabIndex = 5;
             this.label1.Text = "------";
-            // 
-            // lstViewBox
-            // 
-            this.lstViewBox.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chInfo,
-            this.chData});
-            this.lstViewBox.FullRowSelect = true;
-            this.lstViewBox.GridLines = true;
-            this.lstViewBox.HideSelection = false;
-            this.lstViewBox.LabelEdit = true;
-            this.lstViewBox.Location = new System.Drawing.Point(626, 12);
-            this.lstViewBox.Name = "lstViewBox";
-            this.lstViewBox.Size = new System.Drawing.Size(194, 42);
-            this.lstViewBox.TabIndex = 4;
-            this.lstViewBox.UseCompatibleStateImageBehavior = false;
-            this.lstViewBox.View = System.Windows.Forms.View.Details;
-            this.lstViewBox.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.LstViewBox_ColumnWidthChanging);
-            // 
-            // chInfo
-            // 
-            this.chInfo.Text = "Info";
-            this.chInfo.Width = 100;
-            // 
-            // chData
-            // 
-            this.chData.Text = "Data";
-            this.chData.Width = 100;
             // 
             // textBox1
             // 
@@ -321,7 +293,6 @@ namespace DatabasForms
             this.Controls.Add(this.txtBox2);
             this.Controls.Add(this.txtBox1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lstViewBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbSelect);
             this.Controls.Add(this.btnBack);
@@ -346,9 +317,6 @@ namespace DatabasForms
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ComboBox cmbSelect;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView lstViewBox;
-        private System.Windows.Forms.ColumnHeader chInfo;
-        private System.Windows.Forms.ColumnHeader chData;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtBox1;
         private System.Windows.Forms.TextBox txtBox2;
@@ -367,5 +335,6 @@ namespace DatabasForms
 
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnEdit;
+
     }
 }

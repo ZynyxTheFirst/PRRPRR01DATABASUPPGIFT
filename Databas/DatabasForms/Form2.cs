@@ -24,7 +24,6 @@ namespace DatabasForms
             InitializeComponent();
 
             btnEdit.Hide();
-            lstViewBox.View = View.Details;
             cmbSelect.Text = strComboBox;
         }
 
@@ -44,17 +43,12 @@ namespace DatabasForms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form1 f1 = new Form1();
-            f1.ShowDialog();
+            Back();
         }
 
         private void CmbSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             string select = cmbSelect.Text.ToLower();
-            lstViewBox.Columns.Clear();
-            lstViewBox.Items.Clear();
-            lstViewBox.FullRowSelect = true;
 
             #region Label Startup
             label1.Text = "-----";
@@ -86,12 +80,13 @@ namespace DatabasForms
             }
         }
 
-
-        private void LstViewBox_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        void Back()
         {
-            e.Cancel = true;
-            e.NewWidth = lstViewBox.Columns[e.ColumnIndex].Width;
+            this.Hide();
+            Form1 f1 = new Form1();
+            f1.ShowDialog();
         }
+
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
@@ -99,6 +94,7 @@ namespace DatabasForms
             int txtbox5int = Int32.Parse(txtBox5.Text);
             EleverModel elev = new EleverModel(txtbox1int, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtbox5int, txtBox6.Text);
             SqliteDataAccess.AddElev(elev);
+            Back();
 
         }
 
