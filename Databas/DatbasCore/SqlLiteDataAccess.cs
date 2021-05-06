@@ -30,8 +30,6 @@ public class SqliteDataAccess
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
 		return cnn.QueryFirst<EleverModel>("SELECT * FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'", new DynamicParameters());
-//		var output = cnn.Query<EleverModel>("SELECT * FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'", new DynamicParameters());
-//		return output.First();
 	}
 
 	public static void RemoveElev(int ElevPersonnummer)
@@ -89,84 +87,6 @@ public class SqliteDataAccess
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
 		cnn.Query<VårdnadshavareModel>("DELETE FROM Vårdnadshavare WHERE Vårdnadshavare_Personnummer='" + VårdnadshavarePersonnummer + "'");
-	}
-	#endregion
-
-	///Finished with the exception of this tying in with other tables and intermidiary table generation
-	#region Lärare
-	public static void AddLärare(LärareModel lärare)
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Execute($"INSERT INTO Lärare VALUES (@Lärare_Personnummer, @Namn, @Adress, @Telefonnummer, @Epost)", lärare);
-	}
-	public static List<LärareModel> LoadLärareList()
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		var output = cnn.Query<LärareModel>("SELECT * FROM Lärare", new DynamicParameters());
-		return output.ToList();
-	}
-	public static LärareModel LoadLärare(string LärarePersonnummer)
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		var output = cnn.Query<LärareModel>("SELECT * FROM Lärare WHERE Lärare_Personnummer='" + LärarePersonnummer + "'", new DynamicParameters());
-		return output.ToList()[0];
-	}
-	public static void RemoveLärare(string LärarePersonnummer)
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Query<LärareModel>("DELETE FROM Lärare WHERE Lärare_Personnummer='" + LärarePersonnummer + "'");
-	}
-	#endregion
-
-	///Incomplete, SQL code needs rewriting
-	#region Kurser
-	public static void AddKurs(EleverModel elev)
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Execute($"INSERT INTO Elever VALUES (@Elev_Personnummer, @Namn, @Adress, @Epost, @Telefonnummer, @Klass_Namn)", elev);
-	}
-	public static List<EleverModel> LoadKurserList()
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		var output = cnn.Query<EleverModel>("SELECT * FROM Elever", new DynamicParameters());
-		return output.ToList();
-	}
-	public static EleverModel LoadKurs(string ElevPersonnummer)
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		var output = cnn.Query<EleverModel>("SELECT * FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'", new DynamicParameters());
-		return output.ToList()[0];
-	}
-	public static void RemoveKurs(string ElevPersonnummer)
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Query<EleverModel>("DELETE FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'");
-	}
-	#endregion
-
-	///Incomplete, SQL code needs rewriting
-	#region Klasser
-	public static void AddKlass(EleverModel elev)
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Execute($"INSERT INTO Elever VALUES (@Elev_Personnummer, @Namn, @Adress, @Epost, @Telefonnummer, @Klass_Namn)", elev);
-	}
-	public static List<EleverModel> LoadKlasserList()
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		var output = cnn.Query<EleverModel>("SELECT * FROM Elever", new DynamicParameters());
-		return output.ToList();
-	}
-	public static EleverModel LoadKlass(string ElevPersonnummer)
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		var output = cnn.Query<EleverModel>("SELECT * FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'", new DynamicParameters());
-		return output.ToList()[0];
-	}
-	public static void RemoveKlass(string ElevPersonnummer)
-	{
-		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Query<EleverModel>("DELETE FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'");
 	}
 	#endregion
 
