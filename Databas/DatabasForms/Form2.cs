@@ -2,20 +2,43 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace DatabasForms
 {
     public partial class Form2 : Form
     {
+        
+        public List<EleverModel> elever { get; set; }
+        public List<VårdnadshavareModel> vårdnadshavare { get; set; }
+        
+
         public Form2(string strComboBox)
         {
+            elever = GetElever();
+            vårdnadshavare = GetVårdnadshavare();
             InitializeComponent();
 
             lstViewBox.View = View.Details;
             cmbSelect.Text = strComboBox;
+        }
+
+        private List<VårdnadshavareModel> GetVårdnadshavare()
+        {
+            List<VårdnadshavareModel> vårdnadshavare = SqliteDataAccess.LoadVårdnadshavareList();
+            return vårdnadshavare;
+
+        }
+
+        private List<EleverModel> GetElever()
+        {
+            List<EleverModel> elever = SqliteDataAccess.LoadEleverList();
+
+            return elever;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -43,53 +66,20 @@ namespace DatabasForms
 
             if (select == "elever")
             {
-                lstViewBox.Columns.Add("Personnummer", width: 150);
-                lstViewBox.Columns.Add("Namn", width: 150);
-                lstViewBox.Columns.Add("Adress", width: 150);
-                lstViewBox.Columns.Add("E-post", width: 150);
-                lstViewBox.Columns.Add("Telefonnummer", width: 150);
-                lstViewBox.Columns.Add("Klass", width: 150);
+                var elever = this.elever;
 
-                lbl1.Text = "Personnummer";
-                lbl2.Text = "Namn";
-                lbl3.Text = "Adress";
-                lbl4.Text = "E-post";
-                lbl5.Text = "Telefonnummer";
-                lbl6.Text = "Klass";
+                dataGridView1.DataSource = elever;
 
-                lbl6.Show();
-                txtBox6.Show();
+           
             }
 
             if (select == "vårdnadshavare")
             {
-                lstViewBox.Columns.Add("Personnummer", width: 150);
-                lstViewBox.Columns.Add("Namn", width: 150);
-                lstViewBox.Columns.Add("Adress", width: 150);
-                lstViewBox.Columns.Add("E-post", width: 150);
-                lstViewBox.Columns.Add("Telefonnummer", width: 150);
-
-                lbl1.Text = "Personnummer";
-                lbl2.Text = "Namn";
-                lbl3.Text = "Adress";
-                lbl4.Text = "E-post";
-                lbl5.Text = "Telefonnummer";
-
-                lbl6.Hide();
-                txtBox6.Hide();
+                var vårdnadshavare = this.vårdnadshavare;
+                dataGridView1.DataSource = vårdnadshavare;
             }
         }
-        
-        private void AddElever(String personnummer, String name, String adress, String epost, String telefonnummer, String klass)
-        {
-            String[] row = { personnummer, name, adress, epost, telefonnummer, klass };
-
-            ListViewItem item = new ListViewItem(row);
-
-            lstViewBox.Items.Add(item);
-        }
-
-
+       
 
         private void LstViewBox_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
@@ -109,5 +99,9 @@ namespace DatabasForms
             {
                 Environment.Exit(0);
             }
-        }
+
+       
     }
+
+        
+}

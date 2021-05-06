@@ -31,6 +31,9 @@ namespace DatabasForms
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBack = new System.Windows.Forms.Button();
             this.cmbSelect = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,13 +54,16 @@ namespace DatabasForms
             this.lbl4 = new System.Windows.Forms.Label();
             this.lbl5 = new System.Windows.Forms.Label();
             this.lbl6 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(62, 43);
+            this.btnBack.Location = new System.Drawing.Point(54, 32);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(86, 29);
+            this.btnBack.Size = new System.Drawing.Size(75, 22);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "< Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -72,9 +78,10 @@ namespace DatabasForms
             "Kurser",
             "Lärare",
             "Klasser"});
-            this.cmbSelect.Location = new System.Drawing.Point(298, 41);
+            this.cmbSelect.Location = new System.Drawing.Point(261, 31);
+            this.cmbSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbSelect.Name = "cmbSelect";
-            this.cmbSelect.Size = new System.Drawing.Size(138, 28);
+            this.cmbSelect.Size = new System.Drawing.Size(121, 23);
             this.cmbSelect.TabIndex = 1;
             this.cmbSelect.SelectedIndexChanged += new System.EventHandler(this.CmbSelect_SelectedIndexChanged);
             // 
@@ -84,10 +91,10 @@ namespace DatabasForms
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(258, 45);
-            this.label1.MinimumSize = new System.Drawing.Size(2, 3);
+            this.label1.Location = new System.Drawing.Point(226, 34);
+            this.label1.MinimumSize = new System.Drawing.Size(2, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 20);
+            this.label1.Size = new System.Drawing.Size(29, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Add";
             // 
@@ -100,10 +107,9 @@ namespace DatabasForms
             this.lstViewBox.GridLines = true;
             this.lstViewBox.HideSelection = false;
             this.lstViewBox.LabelEdit = true;
-            this.lstViewBox.Location = new System.Drawing.Point(62, 121);
-            this.lstViewBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lstViewBox.Location = new System.Drawing.Point(626, 12);
             this.lstViewBox.Name = "lstViewBox";
-            this.lstViewBox.Size = new System.Drawing.Size(859, 441);
+            this.lstViewBox.Size = new System.Drawing.Size(194, 42);
             this.lstViewBox.TabIndex = 4;
             this.lstViewBox.UseCompatibleStateImageBehavior = false;
             this.lstViewBox.View = System.Windows.Forms.View.Details;
@@ -122,59 +128,66 @@ namespace DatabasForms
             // lbl1
             // 
             this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(992, 63);
+            this.lbl1.Location = new System.Drawing.Point(868, 47);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(45, 20);
+            this.lbl1.Size = new System.Drawing.Size(37, 15);
             this.lbl1.TabIndex = 5;
             this.lbl1.Text = "------";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(478, -120);
+            this.textBox1.Location = new System.Drawing.Point(418, -90);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(744, 27);
+            this.textBox1.Size = new System.Drawing.Size(652, 23);
             this.textBox1.TabIndex = 6;
             // 
             // txtBox1
             // 
-            this.txtBox1.Location = new System.Drawing.Point(1114, 60);
+            this.txtBox1.Location = new System.Drawing.Point(975, 45);
+            this.txtBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBox1.Name = "txtBox1";
-            this.txtBox1.Size = new System.Drawing.Size(154, 27);
+            this.txtBox1.Size = new System.Drawing.Size(135, 23);
             this.txtBox1.TabIndex = 7;
             // 
             // txtBox2
             // 
-            this.txtBox2.Location = new System.Drawing.Point(1114, 132);
+            this.txtBox2.Location = new System.Drawing.Point(975, 99);
+            this.txtBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBox2.Name = "txtBox2";
-            this.txtBox2.Size = new System.Drawing.Size(154, 27);
+            this.txtBox2.Size = new System.Drawing.Size(135, 23);
             this.txtBox2.TabIndex = 8;
             // 
             // txtBox3
             // 
-            this.txtBox3.Location = new System.Drawing.Point(1114, 202);
+            this.txtBox3.Location = new System.Drawing.Point(975, 152);
+            this.txtBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBox3.Name = "txtBox3";
-            this.txtBox3.Size = new System.Drawing.Size(154, 27);
+            this.txtBox3.Size = new System.Drawing.Size(135, 23);
             this.txtBox3.TabIndex = 9;
             // 
             // txtBox4
             // 
-            this.txtBox4.Location = new System.Drawing.Point(1114, 270);
+            this.txtBox4.Location = new System.Drawing.Point(975, 202);
+            this.txtBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBox4.Name = "txtBox4";
-            this.txtBox4.Size = new System.Drawing.Size(154, 27);
+            this.txtBox4.Size = new System.Drawing.Size(135, 23);
             this.txtBox4.TabIndex = 10;
             // 
             // txtBox5
             // 
-            this.txtBox5.Location = new System.Drawing.Point(1114, 337);
+            this.txtBox5.Location = new System.Drawing.Point(975, 253);
+            this.txtBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBox5.Name = "txtBox5";
-            this.txtBox5.Size = new System.Drawing.Size(154, 27);
+            this.txtBox5.Size = new System.Drawing.Size(135, 23);
             this.txtBox5.TabIndex = 11;
             // 
             // txtBox6
             // 
-            this.txtBox6.Location = new System.Drawing.Point(1114, 399);
+            this.txtBox6.Location = new System.Drawing.Point(975, 299);
+            this.txtBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBox6.Name = "txtBox6";
-            this.txtBox6.Size = new System.Drawing.Size(154, 27);
+            this.txtBox6.Size = new System.Drawing.Size(135, 23);
             this.txtBox6.TabIndex = 12;
             // 
             // btnAdd
@@ -183,9 +196,10 @@ namespace DatabasForms
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnAdd.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.Color.Black;
-            this.btnAdd.Location = new System.Drawing.Point(1044, 512);
+            this.btnAdd.Location = new System.Drawing.Point(914, 384);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(150, 50);
+            this.btnAdd.Size = new System.Drawing.Size(131, 38);
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -194,54 +208,88 @@ namespace DatabasForms
             // lbl2
             // 
             this.lbl2.AutoSize = true;
-            this.lbl2.Location = new System.Drawing.Point(992, 135);
+            this.lbl2.Location = new System.Drawing.Point(868, 101);
             this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(45, 20);
+            this.lbl2.Size = new System.Drawing.Size(37, 15);
             this.lbl2.TabIndex = 14;
             this.lbl2.Text = "------";
             // 
             // lbl3
             // 
             this.lbl3.AutoSize = true;
-            this.lbl3.Location = new System.Drawing.Point(992, 205);
+            this.lbl3.Location = new System.Drawing.Point(868, 154);
             this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(45, 20);
+            this.lbl3.Size = new System.Drawing.Size(37, 15);
             this.lbl3.TabIndex = 15;
             this.lbl3.Text = "------";
             // 
             // lbl4
             // 
             this.lbl4.AutoSize = true;
-            this.lbl4.Location = new System.Drawing.Point(992, 273);
+            this.lbl4.Location = new System.Drawing.Point(868, 205);
             this.lbl4.Name = "lbl4";
-            this.lbl4.Size = new System.Drawing.Size(45, 20);
+            this.lbl4.Size = new System.Drawing.Size(37, 15);
             this.lbl4.TabIndex = 16;
             this.lbl4.Text = "------";
             // 
             // lbl5
             // 
             this.lbl5.AutoSize = true;
-            this.lbl5.Location = new System.Drawing.Point(992, 340);
+            this.lbl5.Location = new System.Drawing.Point(868, 255);
             this.lbl5.Name = "lbl5";
-            this.lbl5.Size = new System.Drawing.Size(45, 20);
+            this.lbl5.Size = new System.Drawing.Size(37, 15);
             this.lbl5.TabIndex = 17;
             this.lbl5.Text = "------";
             // 
             // lbl6
             // 
             this.lbl6.AutoSize = true;
-            this.lbl6.Location = new System.Drawing.Point(992, 402);
+            this.lbl6.Location = new System.Drawing.Point(868, 302);
             this.lbl6.Name = "lbl6";
-            this.lbl6.Size = new System.Drawing.Size(45, 20);
+            this.lbl6.Size = new System.Drawing.Size(37, 15);
             this.lbl6.TabIndex = 18;
             this.lbl6.Text = "------";
             // 
+            // dataGridView1
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Location = new System.Drawing.Point(54, 135);
+            this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(484, 262);
+            this.dataGridView1.TabIndex = 20;
+            // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1308, 611);
+            this.ClientSize = new System.Drawing.Size(1144, 458);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lbl6);
             this.Controls.Add(this.lbl5);
             this.Controls.Add(this.lbl4);
@@ -262,10 +310,10 @@ namespace DatabasForms
             this.Controls.Add(this.btnBack);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(18, 47);
+            this.MinimumSize = new System.Drawing.Size(18, 45);
             this.Name = "Form2";
             this.Text = "Add";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,5 +347,6 @@ namespace DatabasForms
         private System.Windows.Forms.Label lbl5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl6;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
