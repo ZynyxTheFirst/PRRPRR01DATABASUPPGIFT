@@ -10,11 +10,12 @@ namespace DatabasForms
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        public Form2(string strComboBox)
         {
             InitializeComponent();
 
             lstViewBox.View = View.Details;
+            cmbSelect.Text = strComboBox;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
