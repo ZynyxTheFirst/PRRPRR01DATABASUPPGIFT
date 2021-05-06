@@ -31,12 +31,22 @@ public class SqliteDataAccess
 		var output = cnn.Query<EleverModel>("SELECT * FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'", new DynamicParameters());
 		return output.ToList()[0];
 	}
+
+	public static EleverModel GetElev(string ElevPersonnummer)
+	{
+		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
+		var output = cnn.Query<EleverModel>("SELECT * FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'", new DynamicParameters());
+		EleverModel elev = new EleverModel(int.Parse(output.ToList()[0].ToString()), output.ToList()[1].ToString(), output.ToList()[2].ToString(), output.ToList()[3].ToString(), int.Parse(output.ToList()[4].ToString()), output.ToList()[5].ToString());
+		return elev;
+	}
+
 	public static void RemoveElev(string ElevPersonnummer)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
 		cnn.Query<EleverModel>("DELETE FROM Elever WHERE Elev_Personnummer='" + ElevPersonnummer + "'");
 	}
 	#endregion
+
 
 	#region Hushåll
 	public static void GenerateHushåll(EleverModel elev, VårdnadshavareModel vårdnadshavare)
@@ -187,6 +197,28 @@ public class EleverModel
 	}
 	¨*/
 }
+
+public class VårdnadshavareModel
+{
+
+	public VårdnadshavareModel() {}
+
+	public VårdnadshavareModel(int personnummer, string namn, string adress, string epost, int telefonnummer)
+	{
+		Vårdnadshavare_Personnummer = personnummer;
+		Namn = namn;
+		Adress = adress;
+		Epost = epost;
+		Telefonnummer = telefonnummer;
+	}
+
+	public int Vårdnadshavare_Personnummer { get; set; }
+	public string Namn { get; set; }
+	public string Adress { get; set; }
+	public string Epost { get; set; }
+	public int Telefonnummer { get; set; }
+}
+
 public class HushållModel
 {
 	public int ID { get; set; }
@@ -212,14 +244,6 @@ public class KursregisteringModel
 public class LärareModel
 {
 	public int Lärare_Personnummer { get; set; }
-	public string Namn { get; set; }
-	public string Adress { get; set; }
-	public string Epost { get; set; }
-	public int Telefonnummer { get; set; }
-}
-public class VårdnadshavareModel
-{
-	public int Vårdnadshavare_Personnummer { get; set; }
 	public string Namn { get; set; }
 	public string Adress { get; set; }
 	public string Epost { get; set; }
