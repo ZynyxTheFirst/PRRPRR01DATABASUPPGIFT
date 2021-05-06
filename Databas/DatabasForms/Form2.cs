@@ -108,5 +108,10 @@ namespace DatabasForms
             txtBox5.Text = "";
             txtBox6.Text = "";
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
