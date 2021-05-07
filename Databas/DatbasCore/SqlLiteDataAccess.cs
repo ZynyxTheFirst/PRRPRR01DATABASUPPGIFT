@@ -61,6 +61,8 @@ public class SqliteDataAccess
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
 		cnn.Execute($"INSERT INTO Vårdnadshavare VALUES (@Vårdnadshavare_Personnummer, @Namn, @Adress, @Epost, @Telefonnummer)", Vårdnadshavare);
 	}
+
+	//Output returnar fel Count är rätt men ingen information kommer med. 
 	public static List<VårdnadshavareModel> LoadVårdnadshavareList()
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());

@@ -30,7 +30,6 @@ namespace DatabasForms
         {
             List<VårdnadshavareModel> vårdnadshavare = SqliteDataAccess.LoadVårdnadshavareList();
             return vårdnadshavare;
-
         }
 
         private List<EleverModel> GetElever()
