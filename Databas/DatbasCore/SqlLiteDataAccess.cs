@@ -69,13 +69,13 @@ public class SqliteDataAccess
 		var output = cnn.Query<VårdnadshavareModel>("SELECT * FROM Vårdnadshavare", new DynamicParameters());
 		return output.ToList();
 	}
-	public static VårdnadshavareModel LoadVårdnadshavare(string VårdnadshavarePersonnummer)
+	public static VårdnadshavareModel LoadVårdnadshavare(int VårdnadshavarePersonnummer)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
 		var output = cnn.Query<VårdnadshavareModel>("SELECT * FROM Vårdnadshavare WHERE Vårdnadshavare_Personnummer='" + VårdnadshavarePersonnummer + "'", new DynamicParameters());
 		return output.ToList()[0];
 	}
-	public static void RemoveVårdnadshavare(string VårdnadshavarePersonnummer)
+	public static void RemoveVårdnadshavare(int VårdnadshavarePersonnummer)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
 		cnn.Query<VårdnadshavareModel>("DELETE FROM Vårdnadshavare WHERE Vårdnadshavare_Personnummer='" + VårdnadshavarePersonnummer + "'");
@@ -142,6 +142,11 @@ public class VårdnadshavareModel
 	public string GetName()
 	{
 		return Namn;
+	}
+
+	public int GetPersonnummer()
+	{
+		return Vårdnadshavare_Personnummer;
 	}
 }
 

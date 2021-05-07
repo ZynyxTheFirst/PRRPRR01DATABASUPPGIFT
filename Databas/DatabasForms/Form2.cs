@@ -12,7 +12,9 @@ namespace DatabasForms
 {
     public partial class Form2 : Form
     {
-        
+        [System.ComponentModel.Browsable(false)]
+        public System.Windows.Forms.DataGridViewRow CurrentRow { get; }
+
         public List<EleverModel> elever { get; set; }
         public List<VårdnadshavareModel> vårdnadshavare { get; set; } 
 
@@ -155,13 +157,11 @@ namespace DatabasForms
                     btnAdd.Hide();
                     btnEdit.Show();
                     var selectedVårdnadshavare = dataGridView1.SelectedRows[0].DataBoundItem as VårdnadshavareModel;
-                    var selectedHushåll = dataGridView1.SelectedRows[0].DataBoundItem as HushållModel;
                     txtBox1.Text = selectedVårdnadshavare.Vårdnadshavare_Personnummer.ToString();
                     txtBox2.Text = selectedVårdnadshavare.Namn;
                     txtBox3.Text = selectedVårdnadshavare.Adress;
                     txtBox4.Text = selectedVårdnadshavare.Epost;
                     txtBox5.Text = selectedVårdnadshavare.Telefonnummer.ToString();
-                    txtBox6.Text = selectedHushåll.Elev_Personnummer.ToString();
                 }
                 catch
                 {
