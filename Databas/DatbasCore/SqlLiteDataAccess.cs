@@ -45,7 +45,7 @@ public class SqliteDataAccess
 	public static void GenerateHushåll(EleverModel elev, VårdnadshavareModel vårdnadshavare)
 	{
 		using IDbConnection cnn = new SQLiteConnection(LoadConnectionString());
-		cnn.Execute($"INSERT INTO Hushåll VALUES ({elev.Elev_Personnummer}, {vårdnadshavare.Vårdnadshavare_Personnummer})");
+		cnn.Execute($"INSERT INTO Hushåll (Elev_Personnummer, Vårdnadshavare_Personnummer) VALUES ({elev.Elev_Personnummer}, {vårdnadshavare.Vårdnadshavare_Personnummer})");
 	}
 	#endregion
 
