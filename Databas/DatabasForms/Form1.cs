@@ -31,14 +31,14 @@ namespace DatabasForms
                     if (select == "elever")
                     {
 
-                        lstContainer.Items.Add(s.ToString());
+                        lstContainer.Items.Add(s.GetName());
                     }
                 }
                 foreach(var s in vårdnadshavare)
                 {
                     if (select == "vårdnadshavare")
                     {
-                        lstContainer.Items.Add(s.ToString());
+                        lstContainer.Items.Add(s.GetName());
                     }
                 }
             }
@@ -65,8 +65,6 @@ namespace DatabasForms
             }
         }
 
-
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -79,7 +77,7 @@ namespace DatabasForms
 
             foreach (var s in elever)
             { 
-                if (s.ToString() == lstContainer.SelectedItem.ToString())
+                if (s.GetName() == lstContainer.SelectedItem.ToString())
                 {
                     SqliteDataAccess.RemoveElev(s.GetPersonnummer());
                 }

@@ -14,8 +14,7 @@ namespace DatabasForms
     {
         
         public List<EleverModel> elever { get; set; }
-        public List<VårdnadshavareModel> vårdnadshavare { get; set; }
-        
+        public List<VårdnadshavareModel> vårdnadshavare { get; set; } 
 
         public Form2(string strComboBox)
         {
@@ -77,6 +76,14 @@ namespace DatabasForms
             {
                 var vårdnadshavare = this.vårdnadshavare;
                 dataGridView1.DataSource = vårdnadshavare;
+                
+                label1.Text = "Personnummer";
+                label2.Text = "Namn";
+                label3.Text = "Adress";
+                label4.Text = "Epost";
+                label5.Text = "Telefonnummer";
+                label6.Text = "Elev Personnummer";
+
             }
         }
 
@@ -90,12 +97,23 @@ namespace DatabasForms
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            int txtbox1int = Int32.Parse(txtBox1.Text);
-            int txtbox5int = Int32.Parse(txtBox5.Text);
-            EleverModel elev = new EleverModel(txtbox1int, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtbox5int, txtBox6.Text);
-            SqliteDataAccess.AddElev(elev);
-            Back();
+            string select = cmbSelect.Text.ToLower();
 
+            if (select == "elever")
+            {
+                int txtbox1int = Int32.Parse(txtBox1.Text);
+                int txtbox5int = Int32.Parse(txtBox5.Text);
+                EleverModel elev = new EleverModel(txtbox1int, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtbox5int, txtBox6.Text);
+                SqliteDataAccess.AddElev(elev);
+            }
+            else if (select == "vårdnadshavare")
+            {
+                int txtbox1int = Int32.Parse(txtBox1.Text);
+                int txtbox5int = Int32.Parse(txtBox5.Text);
+                int txtbox6int = Int32.Parse(txtBox6.Text);
+                SqliteDataAccess.NewVårdnadshavare(txtbox1int, txtBox2.Text, txtBox3.Text, txtBox4.Text, txtbox5int, txtbox6int);
+            }
+            Back();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
