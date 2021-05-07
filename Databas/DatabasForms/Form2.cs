@@ -126,23 +126,50 @@ namespace DatabasForms
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            string select = cmbSelect.Text.ToLower();
+
+            if(select == "elever")
             {
-                btnAdd.Hide();
-                btnEdit.Show();
-                var selectedElev = dataGridView1.SelectedRows[0].DataBoundItem as EleverModel;
-                initiallPersonnummer = selectedElev.GetPersonnummer();
-                txtBox1.Text = selectedElev.Elev_Personnummer.ToString();
-                txtBox2.Text = selectedElev.Namn.ToString();
-                txtBox3.Text = selectedElev.Adress;
-                txtBox4.Text = selectedElev.Epost;
-                txtBox5.Text = selectedElev.Telefonnummer.ToString();
-                txtBox6.Text = selectedElev.Klass_Namn;
+                try
+                {
+                    btnAdd.Hide();
+                    btnEdit.Show();
+                    var selectedElev = dataGridView1.SelectedRows[0].DataBoundItem as EleverModel;
+                    initiallPersonnummer = selectedElev.GetPersonnummer();
+                    txtBox1.Text = selectedElev.Elev_Personnummer.ToString();
+                    txtBox2.Text = selectedElev.Namn;
+                    txtBox3.Text = selectedElev.Adress;
+                    txtBox4.Text = selectedElev.Epost;
+                    txtBox5.Text = selectedElev.Telefonnummer.ToString();
+                    txtBox6.Text = selectedElev.Klass_Namn;
+                }
+                catch
+                {
+                    MessageBox.Show("Some error occured: " + "Print only numbers in [Elev_Personnummer] and [Telefonnummer]");
+                }
             }
-            catch
+
+            if( select== "vårdnadshavare")
             {
-                MessageBox.Show("Some error occured: " + "Print only numbers in [Elev_Personnummer] and [Telefonnummer]"); 
+                try
+                {
+                    btnAdd.Hide();
+                    btnEdit.Show();
+                    var selectedVårdnadshavare = dataGridView1.SelectedRows[0].DataBoundItem as VårdnadshavareModel;
+                    var selectedHushåll = dataGridView1.SelectedRows[0].DataBoundItem as HushållModel;
+                    txtBox1.Text = selectedVårdnadshavare.Vårdnadshavare_Personnummer.ToString();
+                    txtBox2.Text = selectedVårdnadshavare.Namn;
+                    txtBox3.Text = selectedVårdnadshavare.Adress;
+                    txtBox4.Text = selectedVårdnadshavare.Epost;
+                    txtBox5.Text = selectedVårdnadshavare.Telefonnummer.ToString();
+                    txtBox6.Text = selectedHushåll.Elev_Personnummer.ToString();
+                }
+                catch
+                {
+                    MessageBox.Show("Some error occured: " + "Print only numbers in [Elev_Personnummer] and [Telefonnummer]");
+                }
             }
+            
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
